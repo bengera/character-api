@@ -6,4 +6,58 @@ body {
   font-size: fs(400);
   color: clr(neutral, 400);
   line-height: 1.5;
+  background-color: rgb(49, 49, 49);
+}
+
+.inner-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.character{
+  border: 2px solid black;
+  padding: 0rem;
+  width: 300px;
+  border-radius: 20px;
+  margin-left: 2rem;
+  background-color: #FFF;
+  color: black;
+}
+
+.card {
+  &__top {
+  
+    padding: 1rem;
+  }
+
+  &__name {
+    
+    font-size: 24px;
+    font-weight: $fw-700;
+    
+  }
+
+  &__img {
+    border-top: 1px solid rgb(63, 63, 63);
+    border-bottom: 1px solid rgb(63, 63, 63);
+    
+  }
+
+  &__bottom {
+    padding: 1rem;
+  }
+
+  &__status {
+    
+  }
+
+  &__species {
+    
+  }
+
+  &__origin {
+    
+  }
 }
