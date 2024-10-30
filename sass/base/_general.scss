@@ -11,8 +11,8 @@ body {
 
 .images {
   display: grid;
-grid-template-columns: repeat(5,1fr);
-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:1rem;
 }
 
 .inner-container{
@@ -24,8 +24,7 @@ gap: 1rem;
 
 .character{
   border: 2px solid black;
-  padding: 0rem;
-  width: 300px;
+  // width: 300px;
   border-radius: 20px;
   margin-left: 2rem;
   background-color: #FFF;
