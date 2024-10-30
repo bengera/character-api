@@ -1,3 +1,4 @@
+'use strict';
 const imagesContainer = document.querySelector('.images');
 
 const renderCharacters = function(data){
@@ -7,15 +8,16 @@ const renderCharacters = function(data){
         <div class="card__top">
           <p class="card__name">${data.name}</p>
         </div>
-      <img class="card__img" src="${data.img}" alt="">
+      <img class="card__img" src="${data.image}" alt="">
       <div class="card__bottom">
         <p class="card__status">Status: ${data.status}</p>
         <p class="card__species">Species: ${data.species}</p>
-        <p class="card__origin">Origin:${data.origin}</p>
+        <p class="card__origin">Origin: ${data.origin.name}</p>
       </div>
     </div>
     </article>
     `
+    imagesContainer.insertAdjacentHTML('beforeend', card);
 }
 
 const displayCharacters = function(){
@@ -35,10 +37,11 @@ const displayCharacters = function(){
             let results = data.results;
             console.log(results);
             results.forEach(el => {
-                console.log(`${el.name} is ${el.status}`)
-                const img = document.createElement('img')
-                img.src = el.image;
-                imagesContainer.append(img);
+                renderCharacters(el)
+                // console.log(`${el.name} is ${el.status}`)
+                // const img = document.createElement('img')
+                // img.src = el.image;
+                // imagesContainer.append(img);
                 
             });
             resolve()
