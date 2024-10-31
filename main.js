@@ -31,14 +31,14 @@ const displayCharacters = function(){
     return new Promise(function(resolve,reject){
         const randomNumber = Math.floor(Math.random() * 42);
         fetch(`https://rickandmortyapi.com/api/character/?page=${randomNumber}`)
-        .then((res)=>{
+        .then(res=>{
             if(!res.ok){
                 reject(new Error('Data not found'))
                 return;
             }
             return res.json();
         })
-        .then((data)=>{
+        .then(data=>{
             let results = data.results;
                 results.forEach(el => {
                 renderCharacters(el)
@@ -46,7 +46,7 @@ const displayCharacters = function(){
                 
             })
             resolve()
-        }).catch((err) => {
+        }).catch(err => {
             console.error(err);
             reject(err);
         })

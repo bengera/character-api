@@ -14,6 +14,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap:1rem;
+
 }
 
 .inner-container{
@@ -30,6 +31,14 @@ body {
   background-color: #FFF;
   color: black;
   margin:0 auto;
+  cursor: pointer;
+  transition: all .3s;
+
+
+  &:hover {
+    transform: translateY(-10px);
+    
+  }
 
   @include mq(small) {
     width: 330px;
@@ -37,6 +46,7 @@ body {
 }
 
 .card {
+  
   &__top {
   
     padding: 1rem;
