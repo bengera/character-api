@@ -8,8 +8,9 @@
   line-height: 1;
   border: 0;
   font-weight: $fw-700;
-  padding: 1.125em 2em;
+  padding: 1em 2em;
   transition: 275ms ease;
+  border-radius: 10px;
 
   &[data-type="accent"] {
     background-color: clr(primary, 400);

@@ -1,5 +1,8 @@
 'use strict';
 const imagesContainer = document.querySelector('.images');
+const randomButton = document.querySelector('.btn-random');
+
+
 
 const renderCharacters = function(data){
     const card = `
@@ -24,9 +27,9 @@ const renderCharacters = function(data){
 }
 
 const displayCharacters = function(){
+    imagesContainer.innerHTML = '';
     return new Promise(function(resolve,reject){
         const randomNumber = Math.floor(Math.random() * 42);
-        console.log(`Page ${randomNumber}`);
         fetch(`https://rickandmortyapi.com/api/character/?page=${randomNumber}`)
         .then((res)=>{
             if(!res.ok){
@@ -38,15 +41,11 @@ const displayCharacters = function(){
         .then((data)=>{
             console.log(data);
             let results = data.results;
-            console.log(results);
-            results.forEach(el => {
+                results.forEach(el => {
                 renderCharacters(el)
-                // console.log(`${el.name} is ${el.status}`)
-                // const img = document.createElement('img')
-                // img.src = el.image;
-                // imagesContainer.append(img);
                 
-            });
+                
+            })
             resolve()
         }).catch((err) => {
             console.error(err);
@@ -55,7 +54,6 @@ const displayCharacters = function(){
         
     })
 }
-
 
 displayCharacters()
 .then(()=>{
@@ -71,7 +69,6 @@ const checkStatus = (()=>{
     console.log('checking status 🔃')
     document.querySelectorAll('.card__status').forEach((card)=> {
         const statusText = card.textContent.trim().toLowerCase()
-        console.log(statusText);
         if (statusText === 'status: alive'){
             card.classList.add('alive')
         } else if(statusText === 'status: dead'){
@@ -81,4 +78,16 @@ const checkStatus = (()=>{
         )
         
     })
+})
+
+randomButton.addEventListener('click', ()=> {
+    displayCharacters()
+    .then(()=>{
+        console.log('Data resolved ✅')
+        checkStatus()
+          
+        
+    })
+    .catch((err)=> console.error(err));
+    
 })
