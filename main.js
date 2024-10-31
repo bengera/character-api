@@ -10,7 +10,7 @@ const renderCharacters = function(data){
         </div>
       <img class="card__img" src="${data.image}" alt="">
       <div class="card__bottom">
-        <p class="card__status">Status: ${data.status}</p>
+        <p class="card__status"><span>Status:</span> ${data.status}</p>
         <p class="card__species">Species: ${data.species}</p>
         <p class="card__origin">Origin: ${data.origin.name}</p>
       </div>
@@ -18,6 +18,9 @@ const renderCharacters = function(data){
     </article>
     `
     imagesContainer.insertAdjacentHTML('beforeend', card);
+    
+
+    
 }
 
 const displayCharacters = function(){
@@ -53,13 +56,29 @@ const displayCharacters = function(){
     })
 }
 
-let pageNum = 1
 
 displayCharacters()
 .then(()=>{
     console.log('Data resolved ✅')
-    
-    
+    checkStatus()
+      
     
 })
 .catch((err)=> console.error(err));
+
+
+const checkStatus = (()=>{
+    console.log('checking status 🔃')
+    document.querySelectorAll('.card__status').forEach((card)=> {
+        const statusText = card.textContent.trim().toLowerCase()
+        console.log(statusText);
+        if (statusText === 'status: alive'){
+            card.classList.add('alive')
+        } else if(statusText === 'status: dead'){
+            card.classList.add('dead')
+        } else(
+            card.classList.add('unknown')
+        )
+        
+    })
+})

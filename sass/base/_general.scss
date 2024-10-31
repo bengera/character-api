@@ -7,11 +7,12 @@ body {
   color: clr(neutral, 400);
   line-height: 1.5;
   background-color: rgb(49, 49, 49);
+  padding: 1rem;
 }
 
 .images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap:1rem;
 }
 
@@ -24,11 +25,11 @@ body {
 
 .character{
   border: 2px solid black;
-  // width: 300px;
   border-radius: 20px;
-  margin-left: 2rem;
+  // max-width: 80vw;
   background-color: #FFF;
   color: black;
+  margin:0 auto;
 }
 
 .card {
@@ -47,6 +48,7 @@ body {
   &__img {
     border-top: 1px solid rgb(63, 63, 63);
     border-bottom: 1px solid rgb(63, 63, 63);
+   
     
   }
 
@@ -54,15 +56,31 @@ body {
     padding: 1rem;
   }
 
-  &__status {
+  // &__status {
     
-  }
+  // }
 
-  &__species {
+  // &__species {
     
-  }
+  // }
 
-  &__origin {
+  // &__origin {
     
-  }
+  // }
+}
+
+span {
+  color: black;
+}
+
+.alive {
+  color: green;
+}
+
+.dead {
+  color: red;
+}
+
+.unknown {
+  color: orangered;
 }
