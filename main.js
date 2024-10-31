@@ -39,7 +39,6 @@ const displayCharacters = function(){
             return res.json();
         })
         .then((data)=>{
-            console.log(data);
             let results = data.results;
                 results.forEach(el => {
                 renderCharacters(el)
@@ -55,15 +54,18 @@ const displayCharacters = function(){
     })
 }
 
-displayCharacters()
-.then(()=>{
+const loadAndCheckCharacters = function(){
+    return displayCharacters()
+    .then(()=>{
     console.log('Data resolved ✅')
     checkStatus()
-      
-    
+    .catch((err)=> console.error(err));
 })
-.catch((err)=> console.error(err));
 
+}
+    
+
+loadAndCheckCharacters() // initial
 
 const checkStatus = (()=>{
     console.log('checking status 🔃')
@@ -80,14 +82,4 @@ const checkStatus = (()=>{
     })
 })
 
-randomButton.addEventListener('click', ()=> {
-    displayCharacters()
-    .then(()=>{
-        console.log('Data resolved ✅')
-        checkStatus()
-          
-        
-    })
-    .catch((err)=> console.error(err));
-    
-})
+randomButton.addEventListener('click', loadAndCheckCharacters);
