@@ -59,7 +59,7 @@ const loadAndCheckCharacters = function(){
     .then(()=>{
     console.log('Data resolved ✅')
     checkStatus()
-    .catch((err)=> console.error(err));
+    
 })
 
 }
