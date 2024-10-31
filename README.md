@@ -19,10 +19,7 @@
 
 ![](https://github.com/bengera/character-api/blob/master/screenshot.PNG?raw=true)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+This app fetches random character data from the Rick and Morty API and displays it in a card format. Each card shows a character’s name, image, status (e.g., "Alive" or "Dead"), species, and origin. The color of the characters status will change depending on the status, green for 'alive', red for 'dead' and orange for 'unknown'.
 
 
 ### Built With
