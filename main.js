@@ -59,6 +59,7 @@ const loadAndCheckCharacters = function(){
     .then(()=>{
     console.log('Data resolved ✅')
     checkStatus()
+    shuffleCards();
     
 })
 
@@ -81,5 +82,23 @@ const checkStatus = (()=>{
         
     })
 })
+
+function shuffleCards() {
+    
+    const cardsArray = Array.from(imagesContainer.children);
+  
+    // Shuffle the array of divs
+    for (let i = cardsArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cardsArray[i], cardsArray[j]] = [cardsArray[j], cardsArray[i]];
+    }
+  
+    // Remove all divs from the container
+    imagesContainer.innerHTML = '';
+  
+    // Append the shuffled divs back to the container
+    cardsArray.forEach(div => imagesContainer.appendChild(div));
+  }
+  
 
 randomButton.addEventListener('click', loadAndCheckCharacters);
